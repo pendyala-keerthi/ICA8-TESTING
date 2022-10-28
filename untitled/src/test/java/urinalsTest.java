@@ -1,4 +1,6 @@
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+
 
 class urinalsTest {
 
@@ -6,10 +8,21 @@ class urinalsTest {
     void main() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void goodString() {
 
-        System.out.println("====== Keerthi Pendyala == TEST ONE EXECUTED =======");
-        assertEquals(false,urinals.goodString("Helloworld!!!"));
+        System.out.println("Keerthi Pendyala");
+        assertEquals(true,urinals.goodString("100001"));
     }
+    @Test
+    void countUrinals() {
+
+
+    }
+
+    @Test
+    void getString() {
+    }
+
 }
+
