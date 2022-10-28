@@ -2,14 +2,24 @@ import java.util.Scanner;
 
 public class urinals {
     public static void main(String[] args) {
+        String str= getString();
+        boolean x=goodString(str);
+        if(x==false)
+        {
+            System.out.println("invalid string, printing -1");
+        }
+        else {
+            int y=urinalscount(str);
+            System.out.println(y);
+        }
 
     }
     public static boolean goodString(String str){
-        for(int i=0;i<str.length();i++)
+        for(int k=0;k<str.length();k++)
         {
-            if(str.charAt(i)=='0' || str.charAt(i)=='1')
+            if(str.charAt(k)=='0' || str.charAt(k)=='1')
             {
-                if(i>0 && str.charAt(i)=='1' && str.charAt(i-1)=='1')
+                if(k>0 && str.charAt(k)=='1' && str.charAt(k-1)=='1')
                 {
                     return false;
 
@@ -25,67 +35,67 @@ public class urinals {
     public static int urinalscount(String str)
     {
         int[]a=new int[str.length()];
-        for(int i=0;i<a.length;i++)
+        for(int k=0;k<a.length;k++)
         {
-            a[i]=0;
+            a[k]=0;
         }
-        for(int i=0;i<str.length();i++)
+        for(int k=0;k<str.length();k++)
         {
-            if(i==0)
+            if(k==0)
             {
-                if(str.charAt(i)=='0')
+                if(str.charAt(k)=='0')
                 {
-                    if(i+1<str.length()) {
-                        if (str.charAt(i + 1) == '1') {
-                            a[i] = 0;
+                    if(k+1<str.length()) {
+                        if (str.charAt(k + 1) == '1') {
+                            a[k] = 0;
                         } else {
-                            a[i] = 1;
+                            a[k] = 1;
                         }
                     }
                 }
                 else {
-                    a[i]=0;
+                    a[k]=0;
                 }
             }
-            else if(i==1)
+            else if(k==1)
             {
-                if(str.charAt(i)=='1') {
-                    a[i] = a[i - 1];
+                if(str.charAt(k)=='1') {
+                    a[k] = a[k - 1];
                 }
                 else
                 {
-                    if(str.charAt(i-1)=='1')
+                    if(str.charAt(k-1)=='1')
                     {
-                        a[i]=a[i-1];
+                        a[k]=a[k-1];
                     }
-                    else if(i+1<str.length() && str.charAt(i+1)=='1')
+                    else if(k+1<str.length() && str.charAt(k+1)=='1')
                     {
-                        a[i]=a[i-1];
+                        a[k]=a[k-1];
                     }
                     else
                     {
-                        a[i]=1;
+                        a[k]=1;
                     }
                 }
             }
             else {
-                a[i]=a[i-1];
-                if(str.charAt(i)=='1') {
-                    a[i] = a[i - 1];
+                a[k]=a[k-1];
+                if(str.charAt(k)=='1') {
+                    a[k] = a[k - 1];
                 }
                 else
                 {
-                    if(str.charAt(i-1)=='1')
+                    if(str.charAt(k-1)=='1')
                     {
-                        a[i]=a[i-1];
+                        a[k]=a[k-1];
                     }
-                    else if(i+1<str.length() && str.charAt(i+1)=='1')
+                    else if(k+1<str.length() && str.charAt(k+1)=='1')
                     {
-                        a[i]=a[i-1];
+                        a[k]=a[k-1];
                     }
                     else
                     {
-                        a[i]=Math.max(a[i],1+a[i-2]);
+                        a[k]=Math.max(a[k],1+a[k-2]);
                     }
                 }
             }
