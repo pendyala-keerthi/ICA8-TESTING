@@ -12,7 +12,7 @@ class urinalsTest {
     void goodString() {
 
         System.out.println("Keerthi Pendyala");
-        assertEquals(true,urinals.goodString("0000"));
+        assertEquals(true,urinals.goodString("01000"));
     }
     @Test
     void countUrinals() {
